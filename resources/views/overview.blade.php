@@ -4,8 +4,8 @@
 @section('description', 'Manage your global MoY account overview.')
 
 @section('content')
-<div class="flex-1 small:py-12" data-testid="account-page">
-    <div class="flex-1 content-container h-full max-w-5xl mx-auto bg-white flex flex-col">
+<div class="flex-1 small:py-12 bg-ui-bg-subtle" data-testid="account-page">
+    <div class="flex-1 h-full max-w-5xl mx-auto bg-white flex flex-col px-8">
         <div class="grid grid-cols-1  small:grid-cols-[240px_1fr] py-12">
                         <div>
                             <div class="small:hidden" data-testid="mobile-account-nav">
@@ -91,7 +91,7 @@
                                         <span class="font-robotoCond" data-testid="welcome-message" data-value="{{ session('first_name') ?? 'User' }}">Olá, {{ session('first_name') ?? 'User' }}</span>
                                         <span class="text-small-regular text-ui-fg-base">Logado como: <span class="font-semibold" data-testid="customer-email" data-value="{{ session('email') }}">{{ session('email') }}</span></span>
                                     </div>
-                                    <div class="flex flex-col py-8 border-t border-gray-200">
+                                    <div class="flex flex-col py-8">
                                         <div class="flex flex-col gap-y-4 h-full col-span-1 row-span-2 flex-1">
                                             <div class="flex items-start gap-x-16 mb-6">
                                                 <div class="flex flex-col gap-y-4">
@@ -100,49 +100,32 @@
                                                     </div>
                                                     <h3 class="font-semibold font-robotoCond text-lg">Banco de Ygg Points</h3>
                                                     <div class="flex items-center gap-x-2">
-                                                        <img alt="Ygg-point" loading="lazy" width="40" height="40" decoding="async" data-nimg="1" class="items-center mx-2" srcset="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fygg-point.png&amp;w=48&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fygg-point.png&amp;w=96&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fygg-point.png&amp;w=96&amp;q=75" style="color: transparent;">
+                                                        <img alt="Ygg-point" loading="lazy" width="40" height="40" class="items-center mx-2" src="/img/ygg-point.png">
                                                         <span class="font-robotoCond text-3xl-semi" data-testid="customer-ygg-point" data-value="0">0</span>
                                                     </div>
                                                 </div>
-                                                <div class="flex flex-col gap-y-4">
-                                                    <div class="flex items-center gap-x-2">
-                                                        <h3 class="text-large-semi font-robotoCond text-lg">Transações Recentes</h3>
-                                                    </div>
-                                                    <ul class="flex flex-col gap-y-4" data-testid="orders-wrapper">
-                                                        <span data-testid="no-orders-message">No recent transactions</span>
-                                                    </ul>
+                                            </div>
+                                            <div class="flex flex-col gap-y-4">
+                                                <div class="flex items-center gap-x-2">
+                                                    <h3 class="text-large-semi font-robotoCond text-lg">Transações Recentes</h3>
                                                 </div>
+                                                <ul class="flex flex-col gap-y-4" data-testid="orders-wrapper">
+                                                    <span data-testid="no-orders-message">No recent transactions</span>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+        </div>
+        <div class="flex flex-col small:flex-row items-end justify-start py-12 gap-2">
+            <div>
+                <h3 class="text-3xl font-core leading-tight uppercase">Got questions?</h3>
+                <span class="text-lg font-robotoCond text-ui-fg-base">You can find frequently asked questions and answers on our community:</span>
             </div>
-        </main>
-        <footer class="w-full bg-[#5B719F] text-white py-16">
-            <div class="container mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-8 px-6 md:px-12">
-                <div class="flex flex-col items-center text-left">
-                    <div class="flex justify-center mb-4">
-                        <img alt="Myth of Yggdrasil Logo" loading="lazy" width="130" height="130" decoding="async" data-nimg="1" style="color:transparent" srcset="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fmoy_fit2.png&amp;w=256&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fmoy_fit2.png&amp;w=384&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fmoy_fit2.png&amp;w=384&amp;q=75">
-                    </div>
-                    <div class="text-gray-200 text-sm ">
-                        <p class="mb-1/2">Made with <span>🤍</span> for all community.</p>
-                        <p class="txt-medium font-normal font-sans">Copyright © Myth of Yggdrasil</p>
-                    </div>
-                </div>
-                <div class="hidden md:block w-10"></div>
-                <div class="flex flex-col items-start text-left">
-                    <h3 class="font-bold text-xl mb-4">Myth of Yggdrasil</h3>
-                    <ul class="space-y-2">
-                        <li><a href="https://discord.gg/mythofyggdrasil" target="_blank" rel="noreferrer" class="hover:text-gray-300 transition">Discord</a></li>
-                        <li><a href="https://www.youtube.com/watch?v=f2H-dw7u16o" target="_blank" rel="noreferrer" class="hover:text-gray-300 transition">Youtube</a></li>
-                        <li><a href="https://www.instagram.com/myth.yggdrasil/" target="_blank" rel="noreferrer" class="hover:text-gray-300 transition">Instagram</a></li>
-                        <li><a href="https://www.tiktok.com/@mythofyggdrasil" target="_blank" rel="noreferrer" class="hover:text-gray-300 transition">TikTok</a></li>
-                    </ul>
-                </div>
+            <div>
+                <a href="https://discord.gg/mythofyggdrasil" target="_blank" rel="noreferrer" class="text-lg font-robotoCond text-ui-fg-base hover:underline flex gap-2 items-center font-bold uppercase justify-center">join our Discord<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none"><path fill="#5865F2" d="M9.996 9.58c-.739 0-1.348-.678-1.348-1.511 0-.834.597-1.512 1.348-1.512s1.36.685 1.348 1.512c-.011.826-.59 1.511-1.348 1.511m-4.984 0c-.739 0-1.348-.678-1.348-1.511 0-.834.597-1.512 1.348-1.512s1.36.685 1.349 1.512c-.012.826-.598 1.511-1.349 1.511m7.684-6.85a12.4 12.4 0 0 0-3.052-.946.05.05 0 0 0-.05.023q-.21.38-.38.78a11.4 11.4 0 0 0-3.428 0 8 8 0 0 0-.386-.78.05.05 0 0 0-.05-.023c-1.054.181-2.08.5-3.052.946a.04.04 0 0 0-.02.017C.334 5.652-.199 8.486.062 11.287a.05.05 0 0 0 .02.034 12.4 12.4 0 0 0 3.744 1.894.05.05 0 0 0 .053-.017q.434-.591.766-1.247a.05.05 0 0 0-.027-.065 8 8 0 0 1-1.17-.558.05.05 0 0 1-.025-.04.05.05 0 0 1 .02-.042c.083-.06.158-.12.233-.182a.05.05 0 0 1 .048-.007c2.454 1.12 5.112 1.12 7.537 0a.05.05 0 0 1 .05.006 5 5 0 0 0 .233.182.05.05 0 0 1 .02.042.05.05 0 0 1-.024.04 7.7 7.7 0 0 1-1.166.555.1.1 0 0 0-.017.01.05.05 0 0 0-.014.037q0 .01.005.019.337.651.765 1.246a.047.047 0 0 0 .053.018 12.4 12.4 0 0 0 3.75-1.893.05.05 0 0 0 .02-.034c.312-3.235-.524-6.046-2.217-8.54a.04.04 0 0 0-.023-.015"></path></svg></a>
             </div>
         </div>
     </div>

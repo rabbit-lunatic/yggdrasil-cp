@@ -187,17 +187,59 @@ class AccountController extends Controller
                 'pincode_change' => 0,
                 'vip_time' => 0,
                 'old_group' => 0,
-                'web_auth_token' => '',
+                'web_auth_token' => null, // NULL ao invés de string vazia
                 'web_auth_token_enabled' => 0,
-                'first_name' => session('first_name'),
-                'last_name' => session('last_name'),
-                'phone' => session('phone'),
             ]);
 
             return back()->with('message', 'Conta de jogo criada com sucesso!')->with('message_type', 'success');
         } catch (\Exception $e) {
             \Log::error('Erro ao criar conta de jogo: ' . $e->getMessage());
             return back()->with('message', 'Erro ao criar conta de jogo: ' . $e->getMessage())->with('message_type', 'error');
+        }
+    }
+
+    public function changeGameAccountPassword(Request $request)
+    {
+        if (!session('user_id')) {
+            return redirect('/account');
+        }
+
+        $request->validate([
+            'userid' => 'required|string|max:23',
+            'new_password' => 'required|string|min:6|max:32|regex:/^(?=.*[a-zA-Z])(?=.*\d)/',
+        ], [
+            'userid.required' => 'O User ID é obrigatório.',
+            'new_password.required' => 'A nova senha é obrigatória.',
+            'new_password.min' => 'A senha deve ter pelo menos 6 caracteres.',
+            'new_password.max' => 'A senha deve ter no máximo 32 caracteres.',
+            'new_password.regex' => 'A senha deve conter pelo menos uma letra e um número.',
+        ]);
+
+        try {
+            // Verificar se a conta pertence ao usuário logado
+            $account = DB::connection('ragnarok')
+                ->table('login')
+                ->where('userid', $request->userid)
+                ->where('email', session('email'))
+                ->first();
+
+            if (!$account) {
+                return back()->with('message', 'Conta de jogo não encontrada ou não pertence a você.')->with('message_type', 'error');
+            }
+
+            // Atualizar senha
+            DB::connection('ragnarok')
+                ->table('login')
+                ->where('userid', $request->userid)
+                ->where('email', session('email'))
+                ->update([
+                    'user_pass' => $request->new_password,
+                ]);
+
+            return back()->with('message', 'Senha alterada com sucesso!')->with('message_type', 'success');
+        } catch (\Exception $e) {
+            \Log::error('Erro ao alterar senha: ' . $e->getMessage());
+            return back()->with('message', 'Erro ao alterar senha: ' . $e->getMessage())->with('message_type', 'error');
         }
     }
 }

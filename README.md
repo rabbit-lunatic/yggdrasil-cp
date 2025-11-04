@@ -1,13 +1,119 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌟 Painel de Controle Yggdrasil
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Um painel de controle moderno para servidores Ragnarok Online, desenvolvido em Laravel.
 
-## About Laravel
+## 🚀 Instalação Rápida
+
+### Pré-requisitos
+- PHP 8.1 ou superior
+- MySQL 5.7 ou superior
+- Composer
+- Node.js (opcional, para compilar assets)
+
+### Configuração Automática
+
+1. **Clone o repositório:**
+   ```bash
+   git clone <url-do-repositorio> painel-yggdrasil
+   cd painel-yggdrasil
+   ```
+
+2. **Execute o script de configuração:**
+   ```bash
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+
+3. **Configure o banco de dados no arquivo `.env`:**
+   ```env
+   DB_HOST=127.0.0.1
+   DB_DATABASE=ragnarok
+   DB_USERNAME=seu_usuario
+   DB_PASSWORD=sua_senha
+   ```
+
+4. **Execute as migrações:**
+   ```bash
+   php artisan migrate
+   ```
+
+5. **Inicie o servidor:**
+   ```bash
+   chmod +x start.sh
+   ./start.sh
+   ```
+
+## 🔧 Configuração Manual
+
+Se preferir configurar manualmente:
+
+```bash
+# Instalar dependências
+composer install
+
+# Copiar arquivo de ambiente
+cp .env.example .env
+
+# Gerar chave da aplicação
+php artisan key:generate
+
+# Configurar permissões
+chmod -R 775 storage bootstrap/cache
+
+# Compilar assets (opcional)
+npm install && npm run build
+
+# Executar migrações
+php artisan migrate
+
+# Iniciar servidor
+php artisan serve --host=0.0.0.0 --port=8000
+```
+
+## 🌐 Acesso
+
+- **Local:** http://localhost:8000
+- **WSL2:** O script detecta automaticamente o IP do WSL2
+- **Rede:** http://[seu-ip]:8000
+
+## 📱 Ambientes Suportados
+
+- ✅ Linux nativo
+- ✅ WSL2 (Windows)
+- ✅ macOS
+- ✅ Docker
+- ✅ Servidores VPS/Cloud
+
+## 🔒 Produção
+
+Para usar em produção:
+
+1. Configure um servidor web (Apache/Nginx)
+2. Use um banco de dados dedicado
+3. Configure cache e sessões
+4. Ative HTTPS
+5. Configure backups
+
+## 🐛 Solução de Problemas
+
+### Erro de Permissões
+```bash
+chmod -R 775 storage bootstrap/cache
+```
+
+### Erro de Chave da Aplicação
+```bash
+php artisan key:generate
+```
+
+### Erro de Banco de Dados
+Verifique as configurações no arquivo `.env`
+
+## 📞 Suporte
+
+- 📧 Email: [seu-email]
+- 🐛 Issues: [link-para-issues]
+- 📖 Wiki: [link-para-wiki]
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 

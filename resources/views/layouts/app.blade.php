@@ -38,6 +38,14 @@
     <meta name="twitter:image" content="https://mythofyggdrasil.com/twitter-image.jpg?443c03a007878a5d"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+    
+    <!-- Fontes Customizadas do Myth of Yggdrasil -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Changa+One&display=swap" rel="stylesheet"/>
+    
+    <!-- Vite Assets -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
     <script>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -45,7 +53,6 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-T9LNLHZ5');
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Changa+One&amp;display=swap" rel="stylesheet"/>
     <script src="{{ asset('_next/static/chunks/polyfills-42372ed130431b0a.js') }}" noModule=""></script>
 </head>
 <body>
@@ -57,14 +64,15 @@
                 <header class="relative h-20 mx-auto border-b duration-200 bg-white border-ui-border-base">
                     <nav class="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
                         <div class="flex-1 basis-0 gap-4 h-full flex items-center">
-                            <!-- Language Flags -->
-                            <div class="flex gap-2 items-center">
-                                <a href="/" class="hover:opacity-80 transition p-2 rounded-md {{ App::getLocale() == 'pt' ? 'border' : '' }}" aria-label="Switch to BR">
-                                    <img alt="Brazil Flag" loading="lazy" width="24" height="24" decoding="async" src="https://flagcdn.com/w40/br.png" style="color: transparent;">
-                                </a>
-                                <a href="/us" class="hover:opacity-80 transition p-2 rounded-md {{ App::getLocale() == 'en' ? 'border' : '' }}" aria-label="Switch to US">
-                                    <img alt="USA Flag" loading="lazy" width="24" height="24" decoding="async" src="https://flagcdn.com/w40/us.png" style="color: transparent;">
-                                </a>
+                            <div>
+                                <div class="flex gap-2 items-center">
+                                    <button class="hover:opacity-80 transition {{ App::getLocale() == 'pt' ? 'border p-2 rounded-md' : '' }}" aria-label="Switch to BR" onclick="window.location.href='/'">
+                                        <img alt="Brazil Flag" loading="lazy" width="24" height="24" decoding="async" src="https://flagcdn.com/w40/br.png" style="color: transparent;">
+                                    </button>
+                                    <button class="hover:opacity-80 transition {{ App::getLocale() == 'en' ? 'border p-2 rounded-md' : '' }}" aria-label="Switch to US" onclick="window.location.href='/us'">
+                                        <img alt="USA Flag" loading="lazy" width="24" height="24" decoding="async" src="https://flagcdn.com/w40/us.png" style="color: transparent;">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="flex items-center h-full">
@@ -81,7 +89,7 @@
                 </header>
             </div>
             <!-- Main Content -->
-            <main class="flex-grow bg-ui-bg-subtle">
+            <main class="flex-grow">
                 @yield('content')
             </main>
             <!-- Footer -->

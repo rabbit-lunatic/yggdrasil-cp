@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="flex-1 small:py-12" data-testid="account-page">
-    <div class="flex-1 content-container h-full max-w-5xl mx-auto bg-white flex flex-col">
+    <div class="flex-1 h-full max-w-5xl mx-auto bg-white flex flex-col">
         <div class="grid grid-cols-1 small:grid-cols-[240px_1fr] py-12">
             <!-- Sidebar -->
             <div>
@@ -79,7 +79,7 @@
                 <div class="w-full">
                     <div class="w-full text-start text-brand-main mb-8">
                         <div class="flex items-center mb-2">
-                            <img alt="Ygg-point" loading="lazy" width="80" height="80" decoding="async" data-nimg="1" class="mr-4" style="color:transparent" srcset="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fygg-point.png&amp;w=96&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fygg-point.png&amp;w=256&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fygg-point.png&amp;w=256&amp;q=75">
+                            <img alt="Ygg-point" loading="lazy" width="80" height="80" class="mr-4" src="/img/ygg-point.png">
                             <h1 class="uppercase text-4xl md:text-6xl font-core">Ygg Points</h1>
                         </div>
                     </div>
@@ -88,14 +88,17 @@
                             <p class="text-lg font-robotoCond leading-7 my-4">Use seus Ygg Points na Myth Store para personalizar seu personagem e adquirir itens de qualidade de vida que facilitam sua jornada.</p>
                             <p class="text-lg font-robotoCond leading-7 my-4">Conquiste <em>Ygg Points</em> participando de desafios sazonais e eventos da comunidade.</p>
                             <p class="text-lg font-robotoCond leading-7 my-4">Você também pode apoiar financeiramente o Myth Team para obter ainda mais Ygg Points, impulsionando novos conteúdos e inovações.</p>
+                            <p class="text-lg font-robotoCond leading-7 my-4"></p>
+                            <p class="text-lg font-robotoCond leading-7 my-4"></p>
+                            <p class="text-lg font-robotoCond leading-7 my-4"></p>
                         </div>
                     </div>
                     <div class="text-brand-main w-full">
-                        <h2 class="text-4xl mb-6 justify-center font-core text-brand-main uppercase">Adquira Ygg Points com Seu Apoio</h2>
+                        <h2 class="text-4xl mb-6 font-core text-brand-main uppercase">Adquira Ygg Points com Seu Apoio</h2>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                             <div class="product-card min-h-full flex flex-col justify-between items-center bg-ui-bg-default rounded-lg shadow-md">
                                 <div class="w-full flex flex-col my-auto items-center">
-                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" decoding="async" data-nimg="1" class="product-image mb-4" style="color:transparent" srcset="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-500.png&amp;w=256&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-500.png&amp;w=384&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-500.png&amp;w=384&amp;q=75">
+                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" class="product-image mb-4" src="/img/yp-500.png">
                                 </div>
                                 <h3 class="text-2xl font-robotoCond uppercase font-bold text-brand-main">500 Ygg Points</h3>
                                 <p class="text-sm font-robotoCond text-brand-green font-semibold -mt-2">Bonus +25</p>
@@ -113,7 +116,7 @@
                             </div>
                             <div class="product-card min-h-full flex flex-col justify-between items-center bg-ui-bg-default rounded-lg shadow-md">
                                 <div class="w-full flex flex-col my-auto items-center">
-                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" decoding="async" data-nimg="1" class="product-image mb-4" style="color:transparent" srcset="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-1000.png&amp;w=256&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-1000.png&amp;w=384&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-1000.png&amp;w=384&amp;q=75">
+                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" class="product-image mb-4" src="/img/yp-1000.png">
                                 </div>
                                 <h3 class="text-2xl font-robotoCond uppercase font-bold text-brand-main">1,000 Ygg Points</h3>
                                 <p class="text-sm font-robotoCond text-brand-green font-semibold -mt-2">Bonus +50</p>
@@ -131,7 +134,7 @@
                             </div>
                             <div class="product-card min-h-full flex flex-col justify-between items-center bg-ui-bg-default rounded-lg shadow-md">
                                 <div class="w-full flex flex-col my-auto items-center">
-                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" decoding="async" data-nimg="1" class="product-image mb-4" style="color:transparent" srcset="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-2500.png&amp;w=256&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-2500.png&amp;w=384&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-2500.png&amp;w=384&amp;q=75">
+                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" class="product-image mb-4" src="/img/yp-2500.png">
                                 </div>
                                 <h3 class="text-2xl font-robotoCond uppercase font-bold text-brand-main">2,500 Ygg Points</h3>
                                 <p class="text-sm font-robotoCond text-brand-green font-semibold -mt-2">Bonus +125</p>
@@ -149,7 +152,7 @@
                             </div>
                             <div class="product-card min-h-full flex flex-col justify-between items-center bg-ui-bg-default rounded-lg shadow-md">
                                 <div class="w-full flex flex-col my-auto items-center">
-                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" decoding="async" data-nimg="1" class="product-image mb-4" style="color:transparent" srcset="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-5000.png&amp;w=256&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-5000.png&amp;w=384&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-5000.png&amp;w=384&amp;q=75">
+                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" class="product-image mb-4" src="/img/yp-5000.png">
                                 </div>
                                 <h3 class="text-2xl font-robotoCond uppercase font-bold text-brand-main">5,000 Ygg Points</h3>
                                 <p class="text-sm font-robotoCond text-brand-green font-semibold -mt-2">Bonus +250</p>
@@ -167,7 +170,7 @@
                             </div>
                             <div class="product-card min-h-full flex flex-col justify-between items-center bg-ui-bg-default rounded-lg shadow-md">
                                 <div class="w-full flex flex-col my-auto items-center">
-                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" decoding="async" data-nimg="1" class="product-image mb-4" style="color:transparent" srcset="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-10000.png&amp;w=256&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-10000.png&amp;w=384&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-10000.png&amp;w=384&amp;q=75">
+                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" class="product-image mb-4" src="/img/yp-10000.png">
                                 </div>
                                 <h3 class="text-2xl font-robotoCond uppercase font-bold text-brand-main">10,000 Ygg Points</h3>
                                 <p class="text-sm font-robotoCond text-brand-green font-semibold -mt-2">Bonus +500</p>
@@ -185,7 +188,7 @@
                             </div>
                             <div class="product-card min-h-full flex flex-col justify-between items-center bg-ui-bg-default rounded-lg shadow-md">
                                 <div class="w-full flex flex-col my-auto items-center">
-                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" decoding="async" data-nimg="1" class="product-image mb-4" style="color:transparent" srcset="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-25000.png&amp;w=256&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-25000.png&amp;w=384&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.mythofyggdrasil.com%2Fassets%2Fyp-25000.png&amp;w=384&amp;q=75">
+                                    <img alt="Ygg-point" loading="lazy" width="180" height="180" class="product-image mb-4" src="/img/yp-25000.png">
                                 </div>
                                 <h3 class="text-2xl font-robotoCond uppercase font-bold text-brand-main">25,000 Ygg Points</h3>
                                 <p class="text-sm font-robotoCond text-brand-green font-semibold -mt-2">Bonus +1,250</p>

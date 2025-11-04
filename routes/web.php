@@ -17,10 +17,10 @@ Route::post('/account/register', [AccountController::class, 'register']);
 Route::get('/account/profile', [AccountController::class, 'profile']);
 Route::get('/account/game-accounts', [AccountController::class, 'gameAccounts']);
 Route::post('/account/game-accounts', [AccountController::class, 'createGameAccount']);
+Route::post('/account/game-accounts/change-password', [AccountController::class, 'changeGameAccountPassword']);
 Route::get('/account/ygg-points', [AccountController::class, 'yggPoints']);
 Route::get('/account/orders', [AccountController::class, 'orders']);
 Route::post('/logout', [AccountController::class, 'logout']);
-Route::post('/account/game-accounts', [AccountController::class, 'createGameAccount']);
 
 Route::get('/download', function () {
     return view('download');

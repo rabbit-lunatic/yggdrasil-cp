@@ -4,8 +4,9 @@
 @section('description', 'Explore Myth Of Yggdrasil, uma aventura clássica de MMORPG renovada.')
 
 @section('content')
+<div class="w-full bg-ui-bg-subtle text-brand-main">
 <!-- Hero Section -->
-<section class="w-full relative bg-ui-bg-subtle text-brand-main">
+<section class="w-full relative">
     <div class="flex flex-col text-center gap-3 lg:gap-6">
         <div class="bg-[#F6BF96] rounded-md py-2 text-white font-robotoCond font-bold uppercase tracking-wide text-base">LANÇAMENTO OFICIAL 10/10/2025</div>
         <div class="flex flex-col-reverse gap-5 items-center lg:items-start justify-center lg:flex-row w-full">
@@ -21,7 +22,7 @@
                             </div>
                             <div class="flex flex-col items-start justify-cente">
                                 <span class="uppercase">A EVOLUÇÃO</span>
-                                <span class="text-brand-red">DE UM CLÁSSICO</span>
+                                <span id="random-color-text">DE UM CLÁSSICO</span>
                             </div>
                         </div>
                     </h1>
@@ -37,12 +38,12 @@
                             <a href="#slider-section" class="bg-white leading-none relative border-2 rounded-lg border-solid border-brand-main w-full py-5 pl-5 pr-2 font-core uppercase text-lg hover:bg-brand-main hover:text-white duration-150 ease-in-out transition-colors">
                                 <div class="w-[49px] h-[89px] absolute -top-4 -left-7 -scale-x-100">
                                     <img alt="Isabela NPC" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcSet="{{ asset('img/EG_isabella2.png') }} 640w, {{ asset('img/EG_isabella2.png') }} 750w, {{ asset('img/EG_isabella2.png') }} 828w, {{ asset('img/EG_isabella2.png') }} 1080w, {{ asset('img/EG_isabella2.png') }} 1200w, {{ asset('img/EG_isabella2.png') }} 1920w, {{ asset('img/EG_isabella2.png') }} 2048w, {{ asset('img/EG_isabella2.png') }} 3840w" src="{{ asset('img/EG_isabella2.png') }}"/>
-                                </div>Explore Mais
+                                </div>Explorar Mais
                             </a>
                         </div>
                         <div class="flex items-center justify-center">
                             <a href="#joinNow-section" class="bg-white leading-none relative border-2 rounded-lg border-solid text-brand-green border-brand-green w-full py-5 px-2 font-core uppercase text-lg hover:bg-brand-green hover:text-white duration-150 ease-in-out transition-colors">
-                                <span class="mr-2">Jogue Agora</span>
+                                <span class="mr-2">Jogar Agora</span>
                             </a>
                         </div>
                         <div class="flex items-center justify-center">
@@ -107,7 +108,7 @@
 </section>
 
 <!-- Journey Allies Section -->
-<section id="journey-allies-section" class="py-16">
+<section id="journey-allies-section" class="mt-20 w-full">
     <div class="w-full relative z-10 flex flex-col items-center gap-3 max-w-[1200px] mx-auto px-4 md:px-6">
         <div class="flex flex-col-reverse md:flex-row justify-center items-center gap-6">
             <div class="flex flex-col items-center md:items-end">
@@ -197,7 +198,7 @@
 </section>
 
 <!-- Join Now Section -->
-<section id="joinNow-section" class="py-16 text-white">
+<section id="joinNow-section" class="mt-20 w-full">
     <div class="max-w-[1200px] mx-auto px-5">
         <div class="flex flex-col items-center justify-center">
             <div class="relative z-10 md:flex justify-between items-center gap-28 max-w-[1200px] md:px-6 ">
@@ -217,7 +218,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-6 max-w-[450px] md:max-w-[450px] items-center md:items-start">
-                    <h1 class="text-6xl md:text-7xl font-core md:text-left"><span class="text-brand-main">UMA CLÁSSICA AVENTURA</span><!-- --> <span class="text-[#F6BF96]">MODERNA</span></h1>
+                    <h1 class="text-6xl md:text-7xl font-core md:text-left text-brand-main">UMA CLÁSSICA AVENTURA<!-- --> <span class="text-[#F6BF96]">MODERNA</span></h1>
                     <div class="flex flex-col-2 md:flex-row gap-4 justify-between ">
                         <a href="{{ url('/download') }}" class="w-full">
                             <button class="transition-fg relative inline-flex items-center justify-center overflow-hidden rounded-md outline-none disabled:bg-ui-bg-disabled disabled:border-ui-border-base disabled:text-ui-fg-disabled disabled:!shadow-none disabled:after:hidden after:absolute after:inset-0 after:content-[&#x27;&#x27;] shadow-buttons-colored text-ui-fg-on-inverted border-ui-border-loud after:button-inverted-gradient hover:after:button-inverted-hover-gradient active:after:button-inverted-pressed-gradient focus:!shadow-buttons-colored-focus txt-compact-small-plus gap-x-1 bg-brand-red p-3 hover:bg-slate-300 active:bg-slate-300 border-0 w-full md:w-fit whitespace-nowrap">
@@ -230,7 +231,7 @@
                             <button class="transition-fg relative inline-flex items-center justify-center overflow-hidden rounded-md outline-none disabled:bg-ui-bg-disabled disabled:border-ui-border-base disabled:text-ui-fg-disabled disabled:!shadow-none disabled:after:hidden after:absolute after:inset-0 after:content-[&#x27;&#x27;] shadow-buttons-colored text-ui-fg-on-inverted border-ui-border-loud after:button-inverted-gradient hover:after:button-inverted-hover-gradient active:after:button-inverted-pressed-gradient focus:!shadow-buttons-colored-focus txt-compact-small-plus gap-x-1 bg-brand-red p-3 hover:bg-[#ED7780CF] active:bg-brand-red border-0 w-full md:w-fit whitespace-nowrap">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.5 5.944a2.444 2.444 0 0 0 0-4.888 2.444 2.444 0 0 0 0 4.888M11.733 13.292c.764-.24 1.166-1.085.842-1.818A5.55 5.55 0 0 0 7.5 8.167a5.55 5.55 0 0 0-5.075 3.307c-.324.733.078 1.577.842 1.818a14.1 14.1 0 0 0 8.466 0"></path>
-                                </svg> Cadastrar
+                                </svg> Sign up
                             </button>
                         </a>
                         <a href="https://discord.gg/mythofyggdrasil" target="_blank" rel="noreferrer" class="w-full">
@@ -245,7 +246,7 @@
                                             <path fill="#fff" d="M0 0h15v15H0z"></path>
                                         </clipPath>
                                     </defs>
-                                </svg> Entrar na Comunidade
+                                </svg> Join Community
                             </button>
                         </a>
                     </div>
@@ -256,15 +257,15 @@
 </section>
 
 <!-- FAQ Section -->
-<section class="py-16">
+<section id="slider-section" class="mt-20 w-full">
     <div class="max-w-[1200px] mx-auto px-5">
         <div class="flex flex-col md:flex-row items-center justify-center gap-10 mb-20 md:gap-40 mt-5 px-12 max-w-[1200px] mx-auto">
             <div class="w-full md:w-1/2 order-2 md:order-1 z-0">
                 <div class="space-y-6">
                     <div class="border border-gray-300 rounded-lg shadow-sm mb-4 bg-white overflow-hidden">
-                        <button class="w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
+                        <button class="faq-button w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
                             <span class="font-robotoCond text-l">O que é Myth of Yggdrasil</span>
-                            <span class="text-l">+</span>
+                            <span class="faq-icon text-l">+</span>
                         </button>
                         <div class="grid transition-all duration-500 ease-in-out grid-rows-[0fr] opacity-0">
                             <div class="overflow-hidden px-4 pb-0 text-start">
@@ -277,9 +278,9 @@
                         </div>
                     </div>
                     <div class="border border-gray-300 rounded-lg shadow-sm mb-4 bg-white overflow-hidden">
-                        <button class="w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
+                        <button class="faq-button w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
                             <span class="font-robotoCond text-l">Quem está por trás do Myth?</span>
-                            <span class="text-l">+</span>
+                            <span class="faq-icon text-l">+</span>
                         </button>
                         <div class="grid transition-all duration-500 ease-in-out grid-rows-[0fr] opacity-0">
                             <div class="overflow-hidden px-4 pb-0 text-start">
@@ -291,9 +292,9 @@
                         </div>
                     </div>
                     <div class="border border-gray-300 rounded-lg shadow-sm mb-4 bg-white overflow-hidden">
-                        <button class="w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
+                        <button class="faq-button w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
                             <span class="font-robotoCond text-l">Há algum comércio usando dinheiro real?</span>
-                            <span class="text-l">+</span>
+                            <span class="faq-icon text-l">+</span>
                         </button>
                         <div class="grid transition-all duration-500 ease-in-out grid-rows-[0fr] opacity-0">
                             <div class="overflow-hidden px-4 pb-0 text-start">
@@ -306,9 +307,9 @@
                         </div>
                     </div>
                     <div class="border border-gray-300 rounded-lg shadow-sm mb-4 bg-white overflow-hidden">
-                        <button class="w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
+                        <button class="faq-button w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
                             <span class="font-robotoCond text-l">Onde posso encontrar mais informações sobre o jogo?</span>
-                            <span class="text-l">+</span>
+                            <span class="faq-icon text-l">+</span>
                         </button>
                         <div class="grid transition-all duration-500 ease-in-out grid-rows-[0fr] opacity-0">
                             <div class="overflow-hidden px-4 pb-0 text-start">
@@ -320,9 +321,9 @@
                         </div>
                     </div>
                     <div class="border border-gray-300 rounded-lg shadow-sm mb-4 bg-white overflow-hidden">
-                        <button class="w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
+                        <button class="faq-button w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
                             <span class="font-robotoCond text-l">Como posso contatar a equipe do Myth?</span>
-                            <span class="text-l">+</span>
+                            <span class="faq-icon text-l">+</span>
                         </button>
                         <div class="grid transition-all duration-500 ease-in-out grid-rows-[0fr] opacity-0">
                             <div class="overflow-hidden px-4 pb-0 text-start">
@@ -334,9 +335,9 @@
                         </div>
                     </div>
                     <div class="border border-gray-300 rounded-lg shadow-sm mb-4 bg-white overflow-hidden">
-                        <button class="w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
+                        <button class="faq-button w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
                             <span class="font-robotoCond text-l">Como posso reportar um bug ou problema?</span>
-                            <span class="text-l">+</span>
+                            <span class="faq-icon text-l">+</span>
                         </button>
                         <div class="grid transition-all duration-500 ease-in-out grid-rows-[0fr] opacity-0">
                             <div class="overflow-hidden px-4 pb-0 text-start">
@@ -347,9 +348,9 @@
                         </div>
                     </div>
                     <div class="border border-gray-300 rounded-lg shadow-sm mb-4 bg-white overflow-hidden">
-                        <button class="w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
+                        <button class="faq-button w-full text-left p-3 font-black text-brand-main flex justify-between items-center">
                             <span class="font-robotoCond text-l">Quais são os benefícios de criar conteúdo para o Myth?</span>
-                            <span class="text-l">+</span>
+                            <span class="faq-icon text-l">+</span>
                         </button>
                         <div class="grid transition-all duration-500 ease-in-out grid-rows-[0fr] opacity-0">
                             <div class="overflow-hidden px-4 pb-0 text-start">
@@ -363,7 +364,7 @@
             </div>
             <div class="w-full md:w-1/2 flex flex-col items-center justify-center gap-5 md:-ml-[25%] order-1 md:order-2">
                 <div class="flex flex-col -ml-[10%] items-start">
-                    <h3 class="font-core -mb-3 md:-mb-4 ml-1 text-lg md:text-xl">O QUE É QUE</h3>
+                    <h3 class="font-core -mb-3 md:-mb-4 ml-1 text-lg md:text-xl">WHAT THE</h3>
                     <h1 class="text-6xl md:text-7xl font-core">FAQ?!</h1>
                 </div>
                 <div class="relative w-[118px] h-[101px]">
@@ -379,4 +380,45 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Script para aplicar cor aleatória ao texto "DE UM CLÁSSICO"
+        const colors = [
+            'text-brand-red',
+            'text-brand-yellow', 
+            'text-brand-green',
+            'text-brand-purple'
+        ];
+        
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        const element = document.getElementById('random-color-text');
+        
+        if (element) {
+            element.classList.add(randomColor);
+        }
+
+        // Script para accordion do FAQ
+        const faqButtons = document.querySelectorAll('.faq-button');
+        
+        faqButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.faq-icon');
+                
+                // Toggle do conteúdo
+                if (content.classList.contains('grid-rows-[0fr]')) {
+                    content.classList.remove('grid-rows-[0fr]', 'opacity-0');
+                    content.classList.add('grid-rows-[1fr]', 'opacity-100');
+                    icon.textContent = '−';
+                } else {
+                    content.classList.remove('grid-rows-[1fr]', 'opacity-100');
+                    content.classList.add('grid-rows-[0fr]', 'opacity-0');
+                    icon.textContent = '+';
+                }
+            });
+        });
+    });
+</script>
+</div>
 @endsection

@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="flex-1 small:py-12" data-testid="account-page">
-    <div class="flex-1 content-container h-full max-w-5xl mx-auto bg-white flex flex-col">
+    <div class="flex-1 h-full max-w-5xl mx-auto bg-white flex flex-col">
         <div class="grid grid-cols-1 small:grid-cols-[240px_1fr] py-12">
             <!-- Sidebar -->
             <div>
@@ -119,23 +119,87 @@
                             <div class="flex flex-col gap-y-4">
                                 @if($gameAccounts->count() > 0)
                                     @foreach($gameAccounts as $account)
-                                        <div class="flex items-center justify-between p-3 border border-gray-200 rounded-md">
-                                            <div class="flex flex-col">
-                                                <span class="font-semibold">{{ $account->userid }}</span>
-                                                <span class="text-sm text-gray-600">ID: {{ $account->account_id }} | Sexo: {{ $account->sex }}</span>
-                                                <span class="text-sm text-gray-600">
-                                                    Status: {{ $account->state == 0 ? 'Ativa' : 'Banida' }} |
-                                                    Último login: {{ $account->lastlogin ? \Carbon\Carbon::parse($account->lastlogin)->format('d/m/Y H:i') : 'Nunca' }}
-                                                </span>
+                                        <div class="flex items-center justify-between p-4 small:border-b border-gray-200">
+                                            <div class="flex flex-col justify-center">
+                                                <span class="font-semibold uppercase font-robotoCond">Usuário</span>
+                                                <span>{{ $account->userid }}</span>
+                                            </div>
+                                            <div class="flex gap-2">
+                                                <button onclick="openPasswordModal('{{ $account->userid }}')" class="transition-fg relative inline-flex items-center justify-center overflow-hidden border outline-none disabled:bg-ui-bg-disabled disabled:border-ui-border-base disabled:text-ui-fg-disabled disabled:!shadow-none disabled:after:hidden after:absolute after:inset-0 after:content-[''] shadow-buttons-colored after:button-inverted-gradient hover:after:button-inverted-hover-gradient active:bg-ui-button-inverted-pressed active:after:button-inverted-pressed-gradient focus:!shadow-buttons-colored-focus txt-compact-small-plus gap-x-1 w-full font-robotoCond uppercase sm:w-auto py-3 px-6 font-medium text-brand-main bg-white border-brand-main rounded-md hover:bg-brand-orange hover:text-white transition-all">Alterar Senha</button>
                                             </div>
                                         </div>
                                     @endforeach
                                 @else
-                                    <p>Nenhuma conta de jogo encontrada. Crie uma nova conta para entrar no mundo de Myth of Yggdrasil</p>
+                                    <p class="text-sm text-gray-600">Nenhuma conta de jogo encontrada. Crie uma nova conta acima!</p>
                                 @endif
                             </div>
                         </div>
                     </div>
+
+                    <!-- Modal de Alteração de Senha -->
+                    <div id="passwordModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h2 class="text-large-semi uppercase mb-4">Change Password</h2>
+                            <p class="text-sm text-gray-600 mb-4">Game account: <span id="modalUsername" class="font-semibold"></span></p>
+                            <form method="POST" action="/account/game-accounts/change-password">
+                                @csrf
+                                <input type="hidden" name="userid" id="modalUseridInput">
+                                <label for="new-password" class="block text-sm font-medium text-gray-700">New Password</label>
+                                <div class="relative">
+                                    <input class="caret-ui-fg-base bg-ui-bg-field hover:bg-ui-bg-field-hover border-ui-border-base shadow-buttons-neutral placeholder-ui-fg-muted text-ui-fg-base transition-fg relative w-full appearance-none rounded-md border outline-none focus:border-ui-border-interactive focus:shadow-borders-active disabled:text-ui-fg-disabled disabled:!bg-ui-bg-disabled disabled:!border-ui-border-base disabled:placeholder-ui-fg-disabled disabled:cursor-not-allowed disabled:!shadow-none aria-[invalid=true]:!border-ui-border-error aria-[invalid=true]:focus:!shadow-borders-error invalid:!border-ui-border-error invalid:focus:!shadow-borders-error [&::--webkit-search-cancel-button]:hidden [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden txt-compact-medium h-10 px-3 py-[9px] pr-11" id="new-password" required="" type="password" name="new_password" value="">
+                                    <div class="absolute bottom-0 right-0 flex items-center justify-center h-10 w-11">
+                                        <button class="text-ui-fg-muted hover:text-ui-fg-base focus:text-ui-fg-base focus:shadow-borders-interactive-w-focus active:text-ui-fg-base h-fit w-fit rounded-sm outline-none transition-all" type="button" onclick="togglePassword()">
+                                            <span class="sr-only">Show password</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none">
+                                                <g fill="currentColor" clip-path="url(#a)">
+                                                    <path d="M7.5 12.833c-3.558 0-5.725-2.48-6.7-3.96a2.49 2.49 0 0 1 0-2.747c.975-1.48 3.142-3.96 6.7-3.96s5.725 2.48 6.7 3.96a2.49 2.49 0 0 1 0 2.746c-.975 1.48-3.142 3.961-6.7 3.961m0-9.333c-2.934 0-4.76 2.106-5.588 3.36a1.18 1.18 0 0 0 0 1.28C2.74 9.393 4.566 11.5 7.5 11.5s4.76-2.106 5.588-3.36a1.18 1.18 0 0 0 0-1.28C12.26 5.607 10.434 3.5 7.5 3.5"></path>
+                                                    <path d="M7.5 10.389a2.889 2.889 0 1 0 0-5.778 2.889 2.889 0 0 0 0 5.778"></path>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="a">
+                                                        <path fill="#fff" d="M0 0h15v15H0z"></path>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="flex justify-end gap-4 mt-4">
+                                    <button type="button" onclick="closePasswordModal()" class="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden border outline-none disabled:border-ui-border-base disabled:text-ui-fg-disabled disabled:!shadow-none disabled:after:hidden after:absolute after:inset-0 after:content-[''] shadow-buttons-colored border-ui-border-loud after:button-inverted-gradient hover:after:button-inverted-hover-gradient active:bg-ui-button-inverted-pressed active:after:button-inverted-pressed-gradient focus:!shadow-buttons-colored-focus txt-compact-small-plus gap-x-1 py-3 px-6 font-medium text-white bg-brand-red rounded-md hover:bg-brand-darkred focus:ring-2 focus:ring-brand-main focus:outline-none disabled:bg-gray-300 disabled:cursor-not-allowed transition-all border-none">Cancel</button>
+                                    <button type="submit" class="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden border outline-none disabled:border-ui-border-base disabled:text-ui-fg-disabled disabled:!shadow-none disabled:after:hidden after:absolute after:inset-0 after:content-[''] shadow-buttons-colored border-ui-border-loud after:button-inverted-gradient hover:after:button-inverted-hover-gradient active:bg-ui-button-inverted-pressed active:after:button-inverted-pressed-gradient focus:!shadow-buttons-colored-focus txt-compact-small-plus gap-x-1 py-3 px-6 font-medium text-white bg-brand-green rounded-md hover:bg-brand-darkgreen focus:ring-2 focus:ring-brand-main focus:outline-none disabled:bg-gray-300 disabled:cursor-not-allowed transition-all border-none">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <script>
+                        function openPasswordModal(userid) {
+                            document.getElementById('passwordModal').classList.remove('hidden');
+                            document.getElementById('modalUsername').textContent = userid;
+                            document.getElementById('modalUseridInput').value = userid;
+                        }
+
+                        function closePasswordModal() {
+                            document.getElementById('passwordModal').classList.add('hidden');
+                            document.getElementById('new-password').value = '';
+                        }
+
+                        function togglePassword() {
+                            const passwordInput = document.getElementById('new-password');
+                            if (passwordInput.type === 'password') {
+                                passwordInput.type = 'text';
+                            } else {
+                                passwordInput.type = 'password';
+                            }
+                        }
+
+                        // Fechar modal ao clicar fora dele
+                        document.getElementById('passwordModal').addEventListener('click', function(e) {
+                            if (e.target === this) {
+                                closePasswordModal();
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>

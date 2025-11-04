@@ -1,11 +1,286 @@
 @import 'tailwindcss';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* Tailwind v3 Custom Properties */
+@layer base {
+    :root {
+        --tag-green-bg: #d1fae5;
+        --border-interactive: #3b82f6;
+        --bg-highlight: #eff6ff;
+        --tag-red-bg: #ffe4e6;
+        --tag-orange-bg: #fef4c7;
+        --bg-base: #fff;
+        --tag-green-icon: #059669;
+        --tag-purple-bg-hover: #ddd6fe;
+        --tag-blue-border: #bfdbfe;
+        --tag-orange-icon: #d97706;
+        --tag-purple-bg: #ede9fe;
+        --tag-purple-text: #6d28d9;
+        --tag-blue-bg: #dbeafe;
+        --tag-blue-icon: #2563eb;
+        --border-error: #e11d48;
+        --fg-on-inverted: #fff;
+        --fg-on-color: #fff;
+        --fg-interactive-hover: #2563eb;
+        --fg-interactive: #3b82f6;
+        --fg-error: #e11d48;
+        --border-danger: #be123c;
+        --fg-muted: #a1a1aa;
+        --bg-subtle-pressed: #e4e4e7;
+        --tag-green-bg-hover: #a7f3d0;
+        --tag-blue-bg-hover: #bfdbfe;
+        --tag-red-icon: #e11d48;
+        --tag-red-bg-hover: #fecdd3;
+        --tag-red-text: #be123c;
+        --tag-purple-icon: #7c3aed;
+        --tag-blue-text: #1d4ed8;
+        --tag-orange-bg-hover: #fde68a;
+        --tag-purple-border: #ddd6fe;
+        --tag-orange-text: #b45309;
+        --tag-orange-border: #fde68a;
+        --tag-red-border: #fecdd3;
+        --tag-green-border: #a7f3d0;
+        --tag-green-text: #047857;
+        --button-danger: #e11d48;
+        --button-danger-gradient-from: #fff;
+        --button-danger-gradient-to: hsla(0, 0%, 100%, 0);
+        --button-danger-pressed: #9f1239;
+        --button-danger-pressed-gradient-from: #fff;
+        --button-danger-pressed-gradient-to: hsla(0, 0%, 100%, 0);
+        --button-danger-hover: #be123c;
+        --button-danger-hover-gradient-from: #fff;
+        --button-danger-hover-gradient-to: hsla(0, 0%, 100%, 0);
+        --bg-interactive: #3b82f6;
+        --bg-highlight-hover: #dbeafe;
+        --button-transparent: hsla(0, 0%, 100%, .01);
+        --bg-overlay: rgba(9, 9, 11, .4);
+        --border-base: #e5e7eb;
+    }
+    
+    :host, html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body, html {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        --tw-text-opacity: 1;
+        color: rgb(91 113 159 / var(--tw-text-opacity, 1));
+    }
+    
+    body {
+        line-height: inherit;
+    }
+    
+    ::after, ::before {
+        --tw-content: "";
+    }
+    
+    ::backdrop {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59, 130, 246, .5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+    }
+    
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    *, ::before, ::after {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59, 130, 246, .5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        border: 0 solid #e5e7eb;
+        box-sizing: border-box;
+    }
+
+    * {
+        border-color: var(--border-base, #e5e7eb);
+    }
+}
+
+/* Fonts */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #5B719F;
+    scroll-behavior: smooth;
+    font-family: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, sans-serif;
+}
+
+.font-robotoCond {
+    font-family: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, sans-serif;
+}
+
+.font-core {
+    font-family: 'Changa One', cursive;
+}
+
+/* Text sizes do site original */
+.txt-xsmall-plus {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.txt-compact-xlarge-plus {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.txt-medium {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+}
+
+.content-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1024px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Animação float */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Transition utilities */
+.transition-fg {
+    transition-property: color, background-color, border-color, box-shadow, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* Product Cards */
+.product-card {
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(91, 113, 159, 0.15);
+}
+
+.product-image {
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
 }

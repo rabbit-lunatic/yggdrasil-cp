@@ -1,5 +1,8 @@
 {
     "$schema": "https://json.schemastore.org/package.json",
+    "name": "yggdrasil-panel",
+    "description": "Painel de Controle para Servidores Ragnarok Online",
+    "version": "1.0.0",
     "private": true,
     "type": "module",
     "scripts": {

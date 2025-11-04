@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="flex-1 small:py-12" data-testid="account-page">
-    <div class="flex-1 content-container h-full max-w-5xl mx-auto bg-white flex flex-col">
+    <div class="flex-1 h-full max-w-5xl mx-auto bg-white flex flex-col">
         <div class="grid grid-cols-1 small:grid-cols-[240px_1fr] py-12">
             <!-- Sidebar -->
             <div>
