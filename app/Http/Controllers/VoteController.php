@@ -118,6 +118,9 @@ class VoteController extends Controller
             'active' => 'boolean',
         ]);
 
+        // Checkbox não marcado não envia valor, então garantir que seja false
+        $validated['active'] = $request->has('active') ? 1 : 0;
+
         if ($request->hasFile('cover')) {
             $validated['cover'] = $request->file('cover')->store('vote-covers', 'public');
         }
@@ -148,6 +151,9 @@ class VoteController extends Controller
             'block_timer' => 'required|integer|min:0',
             'active' => 'boolean',
         ]);
+
+        // Checkbox não marcado não envia valor, então garantir que seja false
+        $validated['active'] = $request->has('active') ? 1 : 0;
 
         if ($request->hasFile('cover')) {
             if ($vote->cover) {
