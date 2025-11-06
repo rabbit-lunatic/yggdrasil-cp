@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\VoteController;
+use App\Http\Controllers\DonationController;
 
 Route::get('/', function () {
     return view('home');
@@ -24,6 +25,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('vote/{vote}/edit', [VoteController::class, 'edit'])->name('vote.edit');
     Route::put('vote/{vote}', [VoteController::class, 'update'])->name('vote.update');
     Route::delete('vote/{vote}', [VoteController::class, 'destroy'])->name('vote.destroy');
+    
+    // Donation management routes
+    Route::get('donations', [DonationController::class, 'adminIndex'])->name('donations.index');
+    Route::post('donations/{id}/process', [DonationController::class, 'processTransaction'])->name('donations.process');
 });
 
 Route::get('/account', [AccountController::class, 'show']);
@@ -34,7 +39,9 @@ Route::get('/account/profile', [AccountController::class, 'profile']);
 Route::get('/account/game-accounts', [AccountController::class, 'gameAccounts']);
 Route::post('/account/game-accounts', [AccountController::class, 'createGameAccount']);
 Route::post('/account/game-accounts/change-password', [AccountController::class, 'changeGameAccountPassword']);
-Route::get('/account/ygg-points', [AccountController::class, 'yggPoints']);
+Route::get('/account/ygg-points', [DonationController::class, 'index'])->name('donation.index');
+Route::post('/donation/create-payment', [DonationController::class, 'createPayment'])->name('donation.create');
+Route::post('/donation/webhook', [DonationController::class, 'webhook'])->name('donation.webhook');
 Route::get('/account/votes', [VoteController::class, 'index'])->name('vote.index');
 Route::post('/account/votes/{id}', [VoteController::class, 'vote'])->name('vote.submit');
 Route::get('/account/orders', [AccountController::class, 'orders']);

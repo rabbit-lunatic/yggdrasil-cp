@@ -103,7 +103,7 @@
                                                     <h3 class="font-semibold font-robotoCond text-lg">Banco de Ygg Points</h3>
                                                     <div class="flex items-center gap-x-2">
                                                         <img alt="Ygg-point" loading="lazy" width="40" height="40" class="items-center mx-2" src="/img/ygg-point.png">
-                                                        <span class="font-robotoCond text-3xl-semi" data-testid="customer-ygg-point" data-value="0">0</span>
+                                                        <span class="font-robotoCond text-3xl-semi" data-testid="customer-ygg-point" data-value="{{ $userPoints ?? 0 }}">{{ number_format($userPoints ?? 0) }}</span>
                                                     </div>
                                                 </div>
                                             </div>

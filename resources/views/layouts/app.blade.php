@@ -97,10 +97,13 @@
                                             <div id="admin-menu" class="hidden absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
                                                 <div class="py-1" role="menu">
                                                     <a href="{{ route('admin.news.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-robotoCond">
-                                                        � Gerenciar Notícias
+                                                        📰 Gerenciar Notícias
                                                     </a>
                                                     <a href="{{ route('admin.vote.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-robotoCond">
                                                         🗳️ Gerenciar Votação
+                                                    </a>
+                                                    <a href="{{ route('admin.donations.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-robotoCond">
+                                                        💰 Gerenciar Doações
                                                     </a>
                                                 </div>
                                             </div>

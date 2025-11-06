@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
+use App\Models\VotePoint;
+
 class AccountController extends Controller
 {
     public function show()
@@ -14,7 +16,13 @@ class AccountController extends Controller
         if (!session('user_id')) {
             return view('account');
         }
-        return view('overview');
+        
+        $userId = session('user_id');
+        $userPoints = VotePoint::getPoints($userId);
+        
+        return view('overview', [
+            'userPoints' => $userPoints
+        ]);
     }
 
     public function login(Request $request)
